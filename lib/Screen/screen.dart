@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_pick/Animation/Heartanimation.dart';
 import 'package:image_pick/Data/Data_Store.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Screen extends StatefulWidget {
   const Screen({Key? key}) : super(key: key);
@@ -20,9 +21,9 @@ class _ScreenState extends State<Screen> {
     elevation: 1.0,
     leading: const Icon(Icons.camera_alt, color: Colors.black),
     title: SizedBox(
-        height: 35.0, child: Image.asset("assets/images/insta_logo.png")),
+        height: 35.0.h, child: Image.asset("assets/images/insta_logo.png")),
     actions: const <Widget>[
-      Padding(
+      RPadding(
         padding: EdgeInsets.only(right: 12.0),
         child: Icon(
           Icons.send,
@@ -56,8 +57,8 @@ class _ScreenState extends State<Screen> {
       appBar: topBar,
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.only(left: 10, right: 10),
-          padding: const EdgeInsets.all(4.0),
+          margin: REdgeInsets.only(left: 10, right: 10),
+          padding: REdgeInsets.all(4.0),
           child: ListView.builder(
             itemCount: dummyStoryData.length,
             itemBuilder: (context, index) => index == 0
@@ -67,8 +68,8 @@ class _ScreenState extends State<Screen> {
                 : Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 10.h,
                       ),
 
                       /// 1 Row Profile With Toggle
@@ -79,24 +80,26 @@ class _ScreenState extends State<Screen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: 40.0,
-                                width: 40.0,
+                                height: 40.0.h,
+                                width: 40.0.w,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
-                                      fit: BoxFit.fill,
+                                      fit: BoxFit.contain,
                                       image: NetworkImage(
                                         dummyStoryData[index].profilepic,
+                                        scale: 8,
                                       ),
                                     )),
                               ),
-                              const SizedBox(
-                                width: 5,
+                              SizedBox(
+                                width: 5.w,
                               ),
                               Text(
                                 dummyStoryData[index].name,
-                                style: const TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
@@ -107,8 +110,8 @@ class _ScreenState extends State<Screen> {
                         ],
                       ),
 
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 5.h,
                       ),
 
                       /// 2 Row ImageView With Click Animation
@@ -201,18 +204,18 @@ class _ScreenState extends State<Screen> {
                                   )),
                               Text(
                                 dummyStoryData[index].like.toString(),
-                                style: const TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16.sp),
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.w,
                               ),
                               const Icon(FontAwesomeIcons.comment),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.w,
                               ),
                               Text(
                                 dummyStoryData[index].comment.toString(),
-                                style: const TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16.sp),
                               ),
                             ],
                           ),
@@ -222,12 +225,12 @@ class _ScreenState extends State<Screen> {
                                 FontAwesomeIcons.eye,
                                 size: 24,
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.w,
                               ),
                               Text(
                                 dummyStoryData[index].view.toString(),
-                                style: const TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16.sp),
                               ),
                             ],
                           ),
@@ -294,13 +297,13 @@ class _ScreenState extends State<Screen> {
                         children: [
                           Text(
                               "View all ${dummyStoryData[index].comment} comments",
-                              style: const TextStyle(
-                                  fontSize: 14, color: Colors.grey)),
+                              style: TextStyle(
+                                  fontSize: 14.sp, color: Colors.grey)),
                         ],
                       ),
 
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 5.h,
                       ),
 
                       /// Row Total Days
@@ -308,8 +311,8 @@ class _ScreenState extends State<Screen> {
                         children: [
                           Text(
                               "${dummyStoryData[index].day.toString()} DAY AGO",
-                              style: const TextStyle(
-                                  fontSize: 14, color: Colors.grey)),
+                              style: TextStyle(
+                                  fontSize: 14.sp, color: Colors.grey)),
                         ],
                       ),
                     ],
